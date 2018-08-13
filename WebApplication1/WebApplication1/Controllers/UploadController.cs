@@ -40,8 +40,10 @@ namespace WebApplication1
                 {
                     await file.CopyToAsync(stream);
                 }
+
+                
             }
-       
+      
             return RedirectToAction("Files");
         }
         public string Files()

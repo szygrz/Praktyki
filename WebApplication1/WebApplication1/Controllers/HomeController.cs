@@ -13,7 +13,10 @@ namespace WebApplication1.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            System.Diagnostics.Process.Start("C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe", @"startvm Windows10");
+
             return View();
+
         }
     }
 }
