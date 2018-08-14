@@ -6,6 +6,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using WebApplication1.Models.Home;
+using Renci.SshNet;
 
 namespace WebApplication1
 {
@@ -43,7 +44,21 @@ namespace WebApplication1
 
                 
             }
-      
+
+            SftpClient client = new SftpClient("10.6.218.22", "Szymon", "qwerty");
+            client.Connect();
+            string localDirectory = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
+            string localPattern = "*.mp3";
+            string ftpDirectory = "/C:/Users/Szymon/Desktop/";
+            string[] files2 = Directory.GetFiles(localDirectory, localPattern);
+            foreach (string file in files2)
+            {
+                using (Stream inputStream = new FileStream(file, FileMode.Open))
+                {
+                    client.UploadFile(inputStream, ftpDirectory + Path.GetFileName(file));
+                    
+                }
+            }
             return RedirectToAction("Files");
         }
         public string Files()
