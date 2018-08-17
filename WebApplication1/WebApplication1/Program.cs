@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Fiver.Mvc.FileUpload
+namespace WebApplication1
 {
     public class Program
     {

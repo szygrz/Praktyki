@@ -25,6 +25,7 @@ namespace WebApplication1
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> UploadFiles(List<IFormFile> files)
         {
@@ -78,11 +79,12 @@ namespace WebApplication1
         }
         public string Files()
         {
+            
             string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt");
             string readText2 = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt");
-            return (readText)+ (readText2);
-
-          //  return "This is the Welcome action method...";
+            return (readText) + (readText2);
+          
+            
         }
         
 
