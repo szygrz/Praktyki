@@ -45,8 +45,8 @@ namespace WebApplication1
                 
             }
 
-            SftpClient client_sftp = new SftpClient("172.28.115.64", "Szymon", "qwerty");
-            SshClient client_ssh= new SshClient("172.28.115.64", "Szymon", "qwerty");
+            SftpClient client_sftp = new SftpClient("10.6.218.22", "Szymon", "qwerty");
+            SshClient client_ssh= new SshClient("10.6.218.22", "Szymon", "qwerty");
             client_sftp.Connect();
             string localDirectoryUpload = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
             string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt";
@@ -61,20 +61,28 @@ namespace WebApplication1
                     client_sftp.UploadFile(inputStream, uploadDirectory + Path.GetFileName(file));
                 }
             }
-         
+            System.IO.DirectoryInfo di = new DirectoryInfo(localDirectoryUpload);
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
             client_ssh.Connect();
             client_ssh.RunCommand("C:/Users/Szymon/Desktop/Scan.bat");
             using (Stream fileStream = System.IO.File.OpenWrite(localDirectoryDownload))
             {
                 client_sftp.DownloadFile(downloadDirectory, fileStream);
             }
-
+          
             return RedirectToAction("Files");
         }
         public string Files()
         {
-            
-            return "This is the Welcome action method...";
+            string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt");
+            string readText2 = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt");
+            return (readText)+ (readText2);
+
+          //  return "This is the Welcome action method...";
         }
         
 
