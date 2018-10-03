@@ -1,0 +1,24 @@
+﻿
+F-PROT Antivirus CLS version 6.7.5.5955, 32bit (built: 2011-10-03T19-58-16)
+
+
+FRISK Software International (C) Copyright 1989-2011
+Engine version:   4.6.5.141
+Arguments:        C:\Users\Szymon\Desktop\Upload -r -o Scan.txt 
+Virus signatures: 201111251712
+                  (C:\ProgramData\FRISK Software\F-PROT Antivirus for Windows\antivir.def)
+
+
+
+Results:
+
+Files: 2
+Skipped files: 0
+MBR/boot sectors checked: 0
+Objects scanned: 2
+Infected objects: 0
+Infected files: 0
+Files with errors: 0
+Disinfected: 0
+
+Running time: 00:01

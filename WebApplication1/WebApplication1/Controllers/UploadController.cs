@@ -36,61 +36,84 @@ namespace WebApplication1
             {
 
                 var path = Path.Combine(
-                        Directory.GetCurrentDirectory(),"upload",
+                        Directory.GetCurrentDirectory(), "upload",
                         file.GetFilename());
 
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
-                
+
             }
 
-            SftpClient client_sftp = new SftpClient("10.6.218.22", "Szymon", "qwerty");
-            SshClient client_ssh= new SshClient("10.6.218.22", "Szymon", "qwerty");
-            client_sftp.Connect();
+            SftpClient client_sftp = new SftpClient("169.254.90.232", "Szymon", "qwerty");
+            SshClient client_ssh = new SshClient("169.254.90.232", "Szymon", "qwerty");
+            SftpClient client_sftp2 = new SftpClient("169.254.126.161", "Szymon", "qwerty");
+            SshClient client_ssh2 = new SshClient("169.254.126.161", "Szymon", "qwerty");
             string localDirectoryUpload = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
-            string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt";
+            string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan.txt";
+            string localDirectoryDownload2 = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt";
             string localPatternUpload = "*.mp3";
             string uploadDirectory = "/C:/Users/Szymon/Desktop/Upload/";
-            string downloadDirectory= "/C:/Users/Szymon/Desktop/Scan/Scan.txt";
+            string downloadDirectory = "/C:/Users/Szymon/Desktop/Scan/Scan.txt";
+
             string[] filesUpload = Directory.GetFiles(localDirectoryUpload, localPatternUpload);
+            client_sftp.Connect();
             foreach (string file in filesUpload)
             {
                 using (Stream inputStream = new FileStream(file, FileMode.Open))
                 {
                     client_sftp.UploadFile(inputStream, uploadDirectory + Path.GetFileName(file));
+
                 }
             }
             System.IO.DirectoryInfo di = new DirectoryInfo(localDirectoryUpload);
-
-            foreach (FileInfo file in di.GetFiles())
-            {
-                file.Delete();
-            }
             client_ssh.Connect();
-            client_ssh.RunCommand("C:/Users/Szymon/Desktop/Scan.bat");
+            client_ssh.RunCommand("C:/Users/Szymon/Desktop/Scan1.bat");
+
             using (Stream fileStream = System.IO.File.OpenWrite(localDirectoryDownload))
             {
                 client_sftp.DownloadFile(downloadDirectory, fileStream);
             }
-          
+            client_ssh.Disconnect();
+            client_sftp.Disconnect();
+
+            client_sftp2.Connect();
+            client_ssh2.Connect();
+            foreach (string file in filesUpload)
+            {
+                using (Stream inputStream = new FileStream(file, FileMode.Open))
+                {
+                    client_sftp2.UploadFile(inputStream, uploadDirectory + Path.GetFileName(file));
+
+                }
+            }
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+
+            client_ssh2.RunCommand("C:/Users/Szymon/Desktop/Scan.bat");
+            using (Stream fileStream = System.IO.File.OpenWrite(localDirectoryDownload2))
+            {
+                client_sftp2.DownloadFile(downloadDirectory, fileStream);
+            }
+            //  client_sftp2.Disconnect();
+            //client_ssh2.Disconnect();
             return RedirectToAction("Files");
         }
         public string Files()
         {
-            
-            string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt");
+
+            string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan.txt");
             string readText2 = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt");
             return (readText) + (readText2);
-          
-            
+
+
         }
-        
 
 
     }
-
     }
 
      

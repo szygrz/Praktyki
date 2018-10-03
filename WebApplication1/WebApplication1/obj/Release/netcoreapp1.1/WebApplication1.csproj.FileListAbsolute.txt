@@ -1,0 +1,4 @@
+C:\Users\szymo\Desktop\WebApplication1\WebApplication1\obj\Release\netcoreapp1.1\WebApplication1.csprojAssemblyReference.cache
+C:\Users\szymo\Desktop\WebApplication1\WebApplication1\obj\Release\netcoreapp1.1\WebApplication1.csproj.CoreCompileInputs.cache
+C:\Users\szymo\Desktop\WebApplication1\WebApplication1\obj\Release\netcoreapp1.1\WebApplication1.AssemblyInfoInputs.cache
+C:\Users\szymo\Desktop\WebApplication1\WebApplication1\obj\Release\netcoreapp1.1\WebApplication1.AssemblyInfo.cs
