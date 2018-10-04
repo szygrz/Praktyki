@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using WebApplication1.Models.Home;
 using Renci.SshNet;
-
+using System;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1
 {
@@ -46,10 +47,10 @@ namespace WebApplication1
 
             }
 
-            SftpClient client_sftp = new SftpClient("169.254.90.232", "Szymon", "qwerty");
-            SshClient client_ssh = new SshClient("169.254.90.232", "Szymon", "qwerty");
-            SftpClient client_sftp2 = new SftpClient("169.254.126.161", "Szymon", "qwerty");
-            SshClient client_ssh2 = new SshClient("169.254.126.161", "Szymon", "qwerty");
+            SftpClient client_sftp = new SftpClient("192.168.56.101", "Szymon", "qwerty");
+            SshClient client_ssh = new SshClient("192.168.56.101", "Szymon", "qwerty");
+            SftpClient client_sftp2 = new SftpClient("192.168.56.102", "Szymon", "qwerty");
+            SshClient client_ssh2 = new SshClient("192.168.56.102", "Szymon", "qwerty");
             string localDirectoryUpload = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
             string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan.txt";
             string localDirectoryDownload2 = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt";
@@ -69,7 +70,7 @@ namespace WebApplication1
             }
             System.IO.DirectoryInfo di = new DirectoryInfo(localDirectoryUpload);
             client_ssh.Connect();
-            client_ssh.RunCommand("C:/Users/Szymon/Desktop/Scan1.bat");
+            client_ssh.RunCommand("C:/Users/Szymon/Desktop/Scan.bat");
 
             using (Stream fileStream = System.IO.File.OpenWrite(localDirectoryDownload))
             {
@@ -98,23 +99,25 @@ namespace WebApplication1
             {
                 client_sftp2.DownloadFile(downloadDirectory, fileStream);
             }
-            //  client_sftp2.Disconnect();
-            //client_ssh2.Disconnect();
+            client_sftp2.Disconnect();
+            client_ssh2.Disconnect();
             return RedirectToAction("Files");
         }
         public string Files()
         {
-
+            System.IO.File.Delete(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan3.txt");
             string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan.txt");
             string readText2 = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt");
+            string pattern = @"\d";
+            string input = readText;
+            foreach (Match match in Regex.Matches(input, pattern))
+                System.IO.File.AppendAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan3.txt", match.Value);
             return (readText) + (readText2);
-
+          
 
         }
-
-
     }
-    }
+}
 
      
 

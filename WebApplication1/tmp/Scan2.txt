@@ -1,25 +1,25 @@
+*
+* Raport programu Avast ze skanowania
+* Ten plik jest generowany automatycznie
+*
+* Uøyto zadania 'aswcmd.exe'
+* Uruchomiono czwartek, 4 paüdziernik 2018 14:09:05
+* VPS: 181004-0, 04.10.2018
+*
 
--------------------------------------------------------------------------------
+Pliki zaraøone: 0
+Wszystkie pliki: 1
+Wszystkie katalogi: 1
+Rozmiar: 8,6 MB
 
-
------------ SCAN SUMMARY -----------
-Known viruses: 6609610
-Engine version: 0.99.4
-Scanned directories: 1
-Scanned files: 1
-Infected files: 0
-Data scanned: 12.53 MB
-Data read: 6.21 MB (ratio 2.02:1)
-Time: 56.166 sec (0 m 56 s)
-
-Antivirus for Windows\antivir.def)
+*
+* Skanowanie zatrzymane: czwartek, 4 paüdziernik 2018 14:09:05
+* Czas wykonywania: 0 sekund
+*
 
 
 
-Results:
-
-Files: 1
-Skipped files: 0
+ipped files: 0
 MBR/boot sectors checked: 0
 Objects scanned: 1
 Infected objects: 0
