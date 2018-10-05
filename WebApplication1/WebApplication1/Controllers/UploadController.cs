@@ -47,12 +47,12 @@ namespace WebApplication1
 
             }
 
-            SftpClient client_sftp = new SftpClient("192.168.56.101", "Szymon", "qwerty");
-            SshClient client_ssh = new SshClient("192.168.56.101", "Szymon", "qwerty");
+            SftpClient client_sftp = new SftpClient("192.168.56.103", "Szymon", "qwerty");
+            SshClient client_ssh = new SshClient("192.168.56.103", "Szymon", "qwerty");
             SftpClient client_sftp2 = new SftpClient("192.168.56.102", "Szymon", "qwerty");
             SshClient client_ssh2 = new SshClient("192.168.56.102", "Szymon", "qwerty");
             string localDirectoryUpload = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
-            string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan.txt";
+            string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt";
             string localDirectoryDownload2 = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt";
             string localPatternUpload = "*.mp3";
             string uploadDirectory = "/C:/Users/Szymon/Desktop/Upload/";
@@ -106,12 +106,27 @@ namespace WebApplication1
         public string Files()
         {
             System.IO.File.Delete(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan3.txt");
-            string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan.txt");
+            System.IO.File.Delete(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan4.txt");
+            string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt");
             string readText2 = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt");
-            string pattern = @"\d";
+            string[] pattern = { @"(?<=Scanned files: )\d+", @"(?<=Infected files: )\d+", @"(?<=Data read: )\d+.{6}", @"(?<=Running time: )\d+.{3}", @".{1,200}FOUND"};
+            string[] pattern2 = { @"(?<=Wszystkie pliki: )\d+", @"(?<=Pliki zar.{5}: )\d+", @"(?<=Rozmiar: )\d+.{6}", @"(?<=Running time: )\d+.{3}",@".{1,200}FOUND"};
             string input = readText;
-            foreach (Match match in Regex.Matches(input, pattern))
-                System.IO.File.AppendAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan3.txt", match.Value);
+            string input2 = readText2;
+            for (int i = 0; i < pattern.Length; i++)
+            {
+              //  foreach (Match match in Regex.Matches(input, pattern[i])) --> więcej wystąpień
+                    System.Text.RegularExpressions.Match x = Regex.Match(input, pattern[i]);
+                System.IO.File.AppendAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan3.txt","'"+ x.Value +"'"+",");
+            }
+            System.IO.File.AppendAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan3.txt","'ClamAV'");
+            for (int i = 0; i < pattern2.Length; i++)
+            {
+                //  foreach (Match match in Regex.Matches(input2, pattern2[i])) --> więcej wystąpień
+                System.Text.RegularExpressions.Match x = Regex.Match(input2, pattern2[i]);
+                System.IO.File.AppendAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan4.txt", "'" + x.Value + "'" + ",");
+            }
+            System.IO.File.AppendAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan4.txt", "'Avast'");
             return (readText) + (readText2);
           
 
