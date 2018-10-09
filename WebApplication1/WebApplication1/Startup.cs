@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -23,6 +25,9 @@ namespace WebApplication1
                     Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
 
             services.AddMvc();
+
+            services.AddDbContext<WebApplication1Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("WebApplication1Context")));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

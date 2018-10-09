@@ -7,8 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using WebApplication1.Models.Home;
 using Renci.SshNet;
-using System;
 using System.Text.RegularExpressions;
+using WebApplication1.Models;
+using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
 
 namespace WebApplication1
 {
@@ -25,8 +29,7 @@ namespace WebApplication1
         {
             return View();
         }
-
-
+ 
         [HttpPost]
         public async Task<IActionResult> UploadFiles(List<IFormFile> files)
         {
@@ -46,7 +49,7 @@ namespace WebApplication1
                 }
 
             }
-
+           
             SftpClient client_sftp = new SftpClient("192.168.56.103", "Szymon", "qwerty");
             SshClient client_ssh = new SshClient("192.168.56.103", "Szymon", "qwerty");
             SftpClient client_sftp2 = new SftpClient("192.168.56.102", "Szymon", "qwerty");
@@ -101,7 +104,9 @@ namespace WebApplication1
             }
             client_sftp2.Disconnect();
             client_ssh2.Disconnect();
-            return RedirectToAction("Files");
+            
+            return  RedirectToAction("Index", "AddData");
+           // return RedirectToAction("Files");
         }
         public string Files()
         {
@@ -109,8 +114,8 @@ namespace WebApplication1
             System.IO.File.Delete(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan4.txt");
             string readText = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt");
             string readText2 = System.IO.File.ReadAllText(@"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt");
-            string[] pattern = { @"(?<=Scanned files: )\d+", @"(?<=Infected files: )\d+", @"(?<=Data read: )\d+.{6}", @"(?<=Running time: )\d+.{3}", @".{1,200}FOUND"};
-            string[] pattern2 = { @"(?<=Wszystkie pliki: )\d+", @"(?<=Pliki zar.{5}: )\d+", @"(?<=Rozmiar: )\d+.{6}", @"(?<=Running time: )\d+.{3}",@".{1,200}FOUND"};
+            string[] pattern = { @"(?<=Scanned files: )\d+", @"(?<=Infected files: )\d+", @"(?<=Data read: )\d+.{6}", @"(?<=Time: )\d+.{8}", @".{1,200}FOUND"};
+            string[] pattern2 = { @"(?<=Wszystkie pliki: )\d+", @"(?<=Pliki zar.{5}: )\d+", @"(?<=Rozmiar: )\d+.{6}", @"(?<=wykonywania: )\d+.{8}", @".{1,200}FOUND"};
             string input = readText;
             string input2 = readText2;
             for (int i = 0; i < pattern.Length; i++)

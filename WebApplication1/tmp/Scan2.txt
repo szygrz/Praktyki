@@ -3,30 +3,22 @@
 * Ten plik jest generowany automatycznie
 *
 * Uøyto zadania 'aswcmd.exe'
-* Uruchomiono piπtek, 5 paüdziernik 2018 11:41:40
-* VPS: 181004-2, 04.10.2018
+* Uruchomiono wtorek, 9 paüdziernik 2018 09:52:31
+* VPS: 181008-6, 08.10.2018
 *
 
 Pliki zaraøone: 0
-Wszystkie pliki: 3
+Wszystkie pliki: 1
 Wszystkie katalogi: 1
-Rozmiar: 20,2 MB
+Rozmiar: 6,2 MB
 
 *
-* Skanowanie zatrzymane: piπtek, 5 paüdziernik 2018 11:41:40
+* Skanowanie zatrzymane: wtorek, 9 paüdziernik 2018 09:52:31
 * Czas wykonywania: 0 sekund
 *
 
 
+ekund
+*
 
 
-
-ipped files: 0
-MBR/boot sectors checked: 0
-Objects scanned: 1
-Infected objects: 0
-Infected files: 0
-Files with errors: 0
-Disinfected: 0
-
-Running time: 00:00

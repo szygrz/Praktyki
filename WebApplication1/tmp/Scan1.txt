@@ -6,21 +6,12 @@
 Known viruses: 6609610
 Engine version: 0.99.4
 Scanned directories: 1
-Scanned files: 3
+Scanned files: 1
 Infected files: 0
-Data scanned: 0.00 MB
-Data read: 20.19 MB (ratio 0.00:1)
-Time: 28.499 sec (0 m 28 s)
-: 0.34 MB
+Data scanned: 12.53 MB
+Data read: 6.21 MB (ratio 2.02:1)
+Time: 28.741 sec (0 m 28 s)
+
+ 0.34 MB
 Data read: 0.30 MB (ratio 1.12:1)
-Time: 28.750 sec (0 m 28 s)
-
-Time: 35.399 sec (0 m 35 s)
-: 0
-Objects scanned: 2
-Infected objects: 0
-Infected files: 0
-Files with errors: 0
-Disinfected: 0
-
-Running time: 00:01
+Time: 37.588 sec (0 m 37 s)
