@@ -57,7 +57,7 @@ namespace WebApplication1
             string localDirectoryUpload = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
             string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt";
             string localDirectoryDownload2 = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt";
-            string localPatternUpload = "*.mp3";
+            string localPatternUpload = "*.zip";
             string uploadDirectory = "/C:/Users/Szymon/Desktop/Upload/";
             string downloadDirectory = "/C:/Users/Szymon/Desktop/Scan/Scan.txt";
 

@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
             string input2 = readText2;
             string[] ScanData = { "FilesNum", "FilesInf", "Size", "TimeRunn", "Recognition" };
             string[] ScanData2 = { "FilesNum", "FilesInf", "Size", "TimeRunn", "Recognition" };
-            string[] pattern = { @"(?<=Scanned files: )\d+", @"(?<=Infected files: )\d+", @"(?<=Data read: )\d+.{6}", @"(?<=Time: )\d+.{8}", @".{1,200}FOUND" };
+            string[] pattern = { @"(?<=Scanned files: )\d+", @"(?<=Infected files: )\d+", @"(?<=Data read: )\d+.{6}", @"(?<=Time: )\d+.{4}", @".{1,200}FOUND" };
             string[] pattern2 = { @"(?<=Wszystkie pliki: )\d+", @"(?<=Pliki zar.{5}: )\d+", @"(?<=Rozmiar: )\d+.{6}", @"(?<=wykonywania: )\d+.{8}", @".{1,200}FOUND" };
             for (int i = 0; i < 5; i++)
             {
@@ -43,7 +43,7 @@ namespace WebApplication1.Controllers
                 FilesNum = ScanData[0],
                 FilesInf = ScanData[1],
                 Size = ScanData[2],
-                TimeRunn = ScanData[3],
+                TimeRunn = ScanData[3]+ " sekund",
                 Recognition = ScanData[4],
                 Antyvirus = "ClamAV"
             };

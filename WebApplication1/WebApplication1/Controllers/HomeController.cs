@@ -14,6 +14,7 @@ namespace WebApplication1.Controllers
         public IActionResult Index()
         {
             System.Diagnostics.Process.Start("C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe", @"startvm Windows10");
+            System.Diagnostics.Process.Start("C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe", @"startvm Windows10_1");
 
             return View();
 
