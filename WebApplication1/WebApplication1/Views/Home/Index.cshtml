@@ -1,24 +1,27 @@
 ﻿@{
     ViewData["Title"] = "Sprawdzanie plików";
 }
-
-<h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+<script src="~/js/index.js"></script>
+<link href="~/css/index.css" rel="stylesheet" />
+<link href="~/css/button.css" rel="stylesheet" />
 
-<a>
-    <form method="post" enctype="multipart/form-data" asp-controller="Upload" asp-action="UploadFiles">
-        <div class="form-group">
-            <div class="col-md-10">
-                <p>Upload one or more files using this form:</p>
-                <input type="file" name="files" multiple />
-            </div>
+<form method="post" enctype="multipart/form-data" asp-controller="Upload" asp-action="UploadFiles">
+    <div class="form-group">
+        <div class="col-md-10">
+            <h2 style="text-align: center;"><span style="color: #00ccff;">@ViewData["Title"]</span></h2>
+            <p style="text-align: center;"><span style="color: #00ccff;">Wybierz jeden lub kilka plikow:</span></p>
+            <label for="multiple" class="btn-hover color-9">
+                Select files
+            </label>
+            <span style="color: #00ccff;" hidden><input multiple id="multiple" name="files" type="file"/></span>
         </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" value="Upload" />
-            </div>
-        </div>
-    </form>
-</a>
+    </div>
+    <div class="form-group">
+ <div class="col-md-10" style="text-align: center;"> <button class="btn-hover color-9" type="submit" value="Upload" style="text-align: center" ;>Upload</button></div>
+       
+        <!-- <div class="col-md-10" style="text-align: center;"><input type="submit" value="Upload" /></div> -->
+    </div>
+</form>
 
 

@@ -1,14 +1,16 @@
 
 -------------------------------------------------------------------------------
 
-C:\Users\Szymon\Desktop\Upload\trojansimulator.zip: Win.Trojan.R-113 FOUND
 
 ----------- SCAN SUMMARY -----------
 Known viruses: 6609610
 Engine version: 0.99.4
 Scanned directories: 1
-Scanned files: 1
-Infected files: 1
-Data scanned: 0.34 MB
+Scanned files: 3
+Infected files: 0
+Data scanned: 0.00 MB
+Data read: 18.90 MB (ratio 0.00:1)
+Time: 98.778 sec (1 m 38 s)
+: 0.34 MB
 Data read: 0.30 MB (ratio 1.12:1)
 Time: 31.068 sec (0 m 31 s)

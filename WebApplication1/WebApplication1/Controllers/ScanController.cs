@@ -22,8 +22,7 @@ namespace WebApplication1.Controllers
         // GET: Scan
         public async Task<IActionResult> Index()
         {
-         
-
+     
             return View(await _context.Scan.ToListAsync());
         }
 

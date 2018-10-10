@@ -5,6 +5,8 @@
 }
 
 <h2>Scanned files</h2>
+<link href="~/css/gradientbackground.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,54 +14,55 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.FilesNum)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FilesInf)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Size)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TimeRunn)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Recognition)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Antyvirus)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilesNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FilesInf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeRunn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recognition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antyvirus)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FilesNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FilesInf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeRunn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Recognition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Antyvirus)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FilesNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FilesInf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeRunn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recognition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Antyvirus)
+                </td>
+                <td>
+                    <a asp-action="Edit" Style="color:black" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" Style="color:black" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" Style="color:black" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
