@@ -3,22 +3,20 @@
 * Ten plik jest generowany automatycznie
 *
 * Uøyto zadania 'aswcmd.exe'
-* Uruchomiono úroda, 10 paüdziernik 2018 16:36:22
-* VPS: 181010-0, 10.10.2018
+* Uruchomiono czwartek, 11 paüdziernik 2018 10:07:40
+* VPS: 181010-12, 10.10.2018
 *
 
 Pliki zaraøone: 0
-Wszystkie pliki: 3
+Wszystkie pliki: 2
 Wszystkie katalogi: 1
-Rozmiar: 18,9 MB
+Rozmiar: 13,5 MB
 
 *
-* Skanowanie zatrzymane: úroda, 10 paüdziernik 2018 16:36:28
-* Czas wykonywania: 6 sekund
+* Skanowanie zatrzymane: czwartek, 11 paüdziernik 2018 10:07:45
+* Czas wykonywania: 5 sekund
 *
 
-
-kund
 *
 
 

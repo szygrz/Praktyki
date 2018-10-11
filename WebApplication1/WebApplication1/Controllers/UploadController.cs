@@ -52,8 +52,8 @@ namespace WebApplication1
            
             SftpClient client_sftp = new SftpClient("192.168.56.103", "Szymon", "qwerty");
             SshClient client_ssh = new SshClient("192.168.56.103", "Szymon", "qwerty");
-            SftpClient client_sftp2 = new SftpClient("192.168.56.102", "Szymon", "qwerty");
-            SshClient client_ssh2 = new SshClient("192.168.56.102", "Szymon", "qwerty");
+            SftpClient client_sftp2 = new SftpClient("192.168.56.101", "Szymon", "qwerty");
+            SshClient client_ssh2 = new SshClient("192.168.56.101", "Szymon", "qwerty");
             string localDirectoryUpload = @"C:\Users\szymo\Desktop\WebApplication1\WebApplication1\upload";
             string localDirectoryDownload = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan1.txt";
             string localDirectoryDownload2 = @"C:\Users\szymo\Desktop\WebApplication1\tmp\Scan2.txt";

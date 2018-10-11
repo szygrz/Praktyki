@@ -5,16 +5,18 @@
 <script src="~/js/index.js"></script>
 <link href="~/css/index.css" rel="stylesheet" />
 <link href="~/css/button.css" rel="stylesheet" />
-
+<script src="~/js/FileList.js"></script>
 <form method="post" enctype="multipart/form-data" asp-controller="Upload" asp-action="UploadFiles">
     <div class="form-group">
         <div class="col-md-10">
             <h2 style="text-align: center;"><span style="color: #00ccff;">@ViewData["Title"]</span></h2>
-            <p style="text-align: center;"><span style="color: #00ccff;">Wybierz jeden lub kilka plikow:</span></p>
+            <p style="text-align: center;"><span style="color: #00ccff;">Wybierz jeden lub kilka plików:</span></p>
             <label for="multiple" class="btn-hover color-9">
                 Select files
             </label>
-            <span style="color: #00ccff;" hidden><input multiple id="multiple" name="files" type="file"/></span>
+            <label style="color:#00ccff;" id="fileList">Wybierz pliki</label>
+            <span style="color: #00ccff;" hidden><input multiple id="multiple" name="files" type="file" onchange="javascript:updateList()" /></span>
+            <div id="fileList"></div>
         </div>
     </div>
     <div class="form-group">
